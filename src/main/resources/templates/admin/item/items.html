@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="layout :: site-head">
+    <title>Items</title>
+</head>
+<body>
+    <header th:replace="layout :: site-header" />
+    <h1>Items</h1>
+    <a th:href="@{/admin/items/add}">Add Item</a><br />
+    <article th:each="i : ${allItems}">
+        <span th:text="${i.title}"></span>
+        <a href="#" th:text="${i.title}" th:href="@{/admin/items/edit/{id}(id=${i.id})}"></a>
+    </article>
+    <footer th:replace="layout :: site-footer" />
+</body>
+</html>
